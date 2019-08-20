@@ -1,3 +1,19 @@
+'''
+Idea:
+The problem asks for neighbours in both directions (up and down). We know rooted trees only store one-way links/relationship (node -> child) and does not store (child -> parent). However, we can remove the directionality of the tree and make it undirected so that it's easier for us to traverse up and down. This sounds a lot like a DS that we are already familiar with; an undirected graph.
+
+steps:
+1 - loose the directionality by converting tree into undirected graph (adj list)
+2 - Use BFS on the graph with a level counter
+
+step 1: use a DFS algo similar to printAllPaths and store links/relationships (in both directions) into the dict (adj list)
+as an undirected graph. Below, I use a helper function to do just that for cleaner and more readable code
+
+step2: Once we have our undirected graph, the rest is straightforward. We can think of this problem
+as if the target node is at the center and we want to return all the neighbours that are at raduis = k.
+I use BFS algo and a counter that is incremented once every time the radius of the circle increases by one level
+'''
+
 def distanceK(self, root, target, K):
         """
         :type root: TreeNode
